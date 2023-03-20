@@ -1,5 +1,6 @@
 import { AppDataSource } from "../src/data-source.js"
 import { User } from "./entity/User.js"
+import { Book } from "./entity/Book.js"
 
 AppDataSource.initialize().then(async () => {
 
