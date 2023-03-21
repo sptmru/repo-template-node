@@ -7,10 +7,7 @@ fastify.route(
     schema: {
       querystring: {
         type: 'object',
-        properties: {
-          id: { type: 'number' }
-        },
-        required: ['id'],
+        properties: {},
       },
       response: {
         200: {
