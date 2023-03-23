@@ -1,6 +1,10 @@
-const fastify = require('fastify')({ logger: true })
+import Fastify, { FastifyBaseLogger, FastifyInstance, FastifyReply, FastifyRequest, FastifyTypeProviderDefault, RouteGenericInterface } from "fastify";
+import { ResolveFastifyRequestType } from "fastify/types/type-provider";
+import { Server, IncomingMessage, ServerResponse } from "http";
 
-fastify.route(
+const server = Fastify({ logger: true})
+
+server.route(
   {
     method: 'GET',
     url: '/',
@@ -18,11 +22,14 @@ fastify.route(
         }
       }
     },
+    handler: function (request, reply) {
+      reply.send({ data: 'hello books' })
+    }
   }
 )
 
 
-fastify.route(
+server.route(
   {
     method: 'POST',
     url: '/',
@@ -46,5 +53,10 @@ fastify.route(
         }
       }
     },
+    handler: function (request, reply) {
+      reply.send({ data: 'send book' })
+    }
   }
 )
+
+export default server;

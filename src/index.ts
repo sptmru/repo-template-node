@@ -1,13 +1,9 @@
-import Fastify, { FastifyInstance } from 'fastify'
-
 import { AppDataSource } from "../src/data-source.js"
+import server from './routes/index.js'
 
 import { User } from "./entity/User.js"
 
-const server: FastifyInstance = Fastify({})
-
 AppDataSource.initialize().then(async () => {
-
   await server.listen({ port: 3000 })
 
   // console.log("Inserting a new user into the database...")
@@ -22,5 +18,7 @@ AppDataSource.initialize().then(async () => {
   const users = await AppDataSource.manager.find(User)
   console.log("Loaded users: ", users)
   const address = server.server.address()
+
+  console.log('server address: ', address)
 
 }).catch(error => console.log(error))
