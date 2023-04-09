@@ -1,5 +1,6 @@
 import { BooksRepository } from "../repositories/books";
-import { InsertResult } from "typeorm";
+// import { InsertResult } from "typeorm";
+import addBook from "src/queues/books";
 
 interface IBook {
   id: number,
@@ -14,8 +15,8 @@ class BooksService {
         return BooksRepository.getBooks()
     }
 
-    static async addBook(book: IBook): Promise<InsertResult> {
-        return BooksRepository.addBook(book)
+    static async addBook(book: IBook): Promise<void> {
+        return addBook(book)
     }
 }
 
