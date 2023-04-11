@@ -3,7 +3,6 @@ import { Queue } from 'bullmq';
 const myQueue = new Queue('books');
 
 interface IBook {
-  id?: number,
   name: string,
   author: string,
   yearOfPublication: number,

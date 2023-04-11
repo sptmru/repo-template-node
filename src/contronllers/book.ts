@@ -4,7 +4,6 @@ import { FastifyReply, FastifyRequest } from "fastify";
 const { v4: uuidv4 } = require('uuid')
 
 interface IBook {
-  id: number,
   name: string,
   author: string,
   yearOfPublication: number,

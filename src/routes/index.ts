@@ -1,3 +1,4 @@
+import { BooksController } from "../contronllers/book"
 
 const getBooks = {
   schema: {
@@ -14,9 +15,7 @@ const getBooks = {
       }
     }
   },
-  handler: function (request: any, reply: any) {
-    reply.send({ data: 'hello books' })
-  }
+  handler: BooksController.getBooks
 }
 
 
@@ -41,15 +40,12 @@ const postBook = {
       }
     }
   },
-  handler: function (request: any, reply: any) {
-    reply.send({ data: 'send book' })
-  }
+  handler: BooksController.addBook
 }
 
 async function bookRoutes (fastify: any, options: any, done: any) {
 
   fastify.get('/', getBooks);
-
   fastify.post('/', postBook);
 
   done();

@@ -2,7 +2,6 @@ import { Book } from "../entity/Book";
 import { AppDataSource } from "../data-source";
 
 interface IBook {
-  id?: number,
   name: string,
   author: string,
   yearOfPublication: number,
