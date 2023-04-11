@@ -1,11 +1,6 @@
 import { Book } from "../entity/Book";
 import { AppDataSource } from "../data-source";
-
-interface IBook {
-  name: string,
-  author: string,
-  yearOfPublication: number,
-}
+import { IBook } from "../interfaces/IBook"
 
 class BooksRepository {
     static async getBooks() {

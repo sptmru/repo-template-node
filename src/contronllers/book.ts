@@ -1,13 +1,8 @@
 import { BooksService } from "../services/booksService";
 import { FastifyReply, FastifyRequest } from "fastify";
+import { IBook } from "../interfaces/IBook"
+import { v4 as uuidv4 } from 'uuid';
 
-const { v4: uuidv4 } = require('uuid')
-
-interface IBook {
-  name: string,
-  author: string,
-  yearOfPublication: number,
-}
 
 class BooksController {
 

@@ -1,13 +1,6 @@
 import { Worker, Job } from 'bullmq';
-import { AppDataSource } from '../data-source';
-// import { Book } from '../entity/Book';
-import { BooksRepository } from 'src/repositories/books';
-
-interface IBook {
-  name: string,
-  author: string,
-  yearOfPublication: number,
-}
+import { IBook } from "../interfaces/IBook"
+import { BooksRepository } from '../repositories/books';
 
 const worker = new Worker('books', async (book: Job) => {
 

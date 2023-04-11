@@ -1,13 +1,6 @@
 import { BooksRepository } from "../repositories/books";
-// import { InsertResult } from "typeorm";
-import addBook from "src/queues/books";
-
-interface IBook {
-  id: number,
-  name: string,
-  author: string,
-  yearOfPublication: number,
-}
+import addBook from "../queues/books";
+import { IBook } from "../interfaces/IBook"
 
 class BooksService {
 

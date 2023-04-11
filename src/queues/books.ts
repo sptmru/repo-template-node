@@ -1,12 +1,8 @@
 import { Queue } from 'bullmq';
+import { IBook } from "../interfaces/IBook"
 
 const myQueue = new Queue('books');
 
-interface IBook {
-  name: string,
-  author: string,
-  yearOfPublication: number,
-}
 
 async function addBook(book: IBook) {
   await myQueue.add('Book', {
