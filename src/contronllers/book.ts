@@ -1,8 +1,8 @@
-import { BooksService } from "../services/booksService";
 import { FastifyReply, FastifyRequest } from "fastify";
-import { IBook } from "../interfaces/IBook"
 import { v4 as uuidv4 } from 'uuid';
 
+import { BooksService } from "../services/booksService";
+import { IBook } from "../interfaces/IBook";
 
 class BooksController {
 

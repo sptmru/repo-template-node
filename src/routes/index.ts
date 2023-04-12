@@ -1,4 +1,4 @@
-import { BooksController } from "../contronllers/book"
+import { BooksController } from "../contronllers/book";
 
 const getBooks = {
   schema: {
