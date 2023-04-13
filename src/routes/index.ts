@@ -2,15 +2,21 @@ import { BooksController } from "../contronllers/book";
 
 const getBooks = {
   schema: {
-    querystring: {
-      type: 'object',
-      properties: {},
-    },
+    // querystring: {
+    //   type: 'object',
+    //   properties: {},
+    // },
     response: {
       200: {
-        type: 'object',
-        properties: {
-          data: { type: 'string' }
+        type: 'array',
+        items: {
+          type: 'object',
+          properties: {
+            id: { type: 'string' },
+            name: { type: 'string' },
+            author: { type: 'string' },
+            yearOfPublication: { type: 'number' }
+          }
         }
       }
     }
@@ -21,15 +27,14 @@ const getBooks = {
 
 const postBook = {
   schema: {
-    querystring: {
+    body: {
       type: 'object',
       properties: {
-        id: { type: 'number' },
         name: { type: 'string' },
         author: { type: 'string' },
         yearOfPublication: { type: 'number' }
       },
-      required: ['id', 'name', 'author'],
+      required: ['name', 'author'],
     },
     response: {
       200: {

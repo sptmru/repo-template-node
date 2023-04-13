@@ -1,6 +1,5 @@
 import { FastifyReply, FastifyRequest } from "fastify";
-import { v4 as uuidv4 } from 'uuid';
-
+import { v4 } from 'uuid';
 import { BooksService } from "../services/booksService";
 import { IBook } from "../interfaces/IBook";
 
@@ -21,15 +20,15 @@ class BooksController {
   static async addBook(req: FastifyRequest, reply: FastifyReply) {
     const bookData: IBook = req.body as IBook;
     const book = {
-      id: uuidv4(),
+      id: v4(),
       name: bookData.name,
       author: bookData.author,
       yearOfPublication: bookData.yearOfPublication,
     }
 
     try {
-      const createdBook = await BooksService.addBook(book);
-      reply.code(201).send(createdBook);
+      await BooksService.addBook(book);
+      reply.code(201).send(book);
     } catch (err) {
       reply.code(400).send({ error: "Bad Request" })
     }

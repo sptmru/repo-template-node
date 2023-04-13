@@ -5,7 +5,7 @@ import { IBook } from "../interfaces/IBook"
 class BooksService {
 
     static async getBooks(): Promise<IBook[]> {
-        return BooksRepository.getBooks()
+        return BooksRepository.getBooks();
     }
 
     static async addBook(book: IBook): Promise<void> {

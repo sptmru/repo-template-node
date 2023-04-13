@@ -4,7 +4,7 @@ services:
   redis:
     image: redis:6.2
     restart: always
-    command: ['redis-server', '--bind', 'redis', '--port', '6379']
+    command: ['redis-server', '--bind', 'redis', '--port', '6379', '--maxmemory-policy noeviction']
     environment:
       - REDIS_HOST=redis
       - REDIS_PORT=6379
