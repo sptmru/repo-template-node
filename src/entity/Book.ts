@@ -3,7 +3,7 @@ import { Entity, ObjectIdColumn, Column } from "typeorm";
 @Entity()
 export class Book {
   @ObjectIdColumn()
-    id: number;
+    id: string;
 
   @Column()
     name: string;
@@ -12,5 +12,5 @@ export class Book {
     author: string;
 
   @Column()
-    yearOfPublication: number;
+    yearOfPublication: string | number;
 }
