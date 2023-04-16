@@ -1,4 +1,5 @@
 import { BooksController } from "../contronllers/book";
+import { UsersController } from "src/contronllers/user";
 
 const getBooks = {
   schema: {
@@ -24,8 +25,7 @@ const getBooks = {
   handler: BooksController.getBooks
 }
 
-
-const postBook = {
+const addBook = {
   schema: {
     body: {
       type: 'object',
@@ -49,11 +49,37 @@ const postBook = {
 }
 
 async function bookRoutes (fastify: any, options: any, done: any) {
-
-  fastify.get('/', getBooks);
-  fastify.post('/', postBook);
+  fastify.get('/books', getBooks);
+  fastify.post('/books', addBook);
 
   done();
 }
 
-export { bookRoutes };
+const addUser = {
+  schema: {
+    body: {
+      type: 'object',
+      properties: {
+        login: { type: 'string' },
+      },
+      required: ['login'],
+    },
+    response: {
+      200: {
+        type: 'object',
+        properties: {
+          data: { type: 'string' }
+        }
+      }
+    }
+  },
+  handler: UsersController.addUser
+}
+
+async function userRoutes (fastify: any, options: any, done: any) {
+  fastify.post('/user', addUser);
+
+  done();
+}
+
+export { bookRoutes, userRoutes };
