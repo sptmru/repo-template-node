@@ -2,7 +2,7 @@ import { FastifyReply, FastifyRequest } from "fastify";
 import { v4 } from 'uuid';
 
 import { IUser } from "../interfaces/IUser";
-import { UsersService } from "src/services/usersService";
+import { UsersService } from "../services/usersService";
 
 class UsersController {
 

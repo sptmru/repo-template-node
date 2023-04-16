@@ -1,5 +1,5 @@
 import { BooksController } from "../contronllers/book";
-import { UsersController } from "src/contronllers/user";
+import { UsersController } from "../contronllers/user";
 
 const getBooks = {
   schema: {
