@@ -1,10 +1,11 @@
 import { AppDataSource } from "../src/data-source.js"
 import fastify from "fastify"
-import { bookRoutes } from "./routes/index.js"
+import { bookRoutes, userRoutes } from "./routes/index.js"
 import { startBooksWorker } from "./workers";
 
 const server = fastify({ logger: true })
 server.register(bookRoutes)
+server.register(userRoutes);
 
 startBooksWorker();
 
